@@ -37,10 +37,14 @@ public class App {
 //        company.promote(steve);
 //        System.out.println(company.isManager(bob));
 
-        System.out.println("Managers");
-        company.getManagers().forEach(System.out::println);
-        System.out.println("Non Managers");
-        company.getNonManagers().forEach(System.out::println);
+//        System.out.println("Managers");
+//        company.getManagers().forEach(System.out::println);
+//        System.out.println("Non Managers");
+//        company.getNonManagers().forEach(System.out::println);
+
+        company.getDirectSubordinates(john).forEach(System.out::println);
+        company.getDirectSubordinates(bob).forEach(System.out::println);
+        company.getDirectSubordinates(steve).forEach(System.out::println);
 
 //        System.out.println((int) (Math.random() * 44));
 

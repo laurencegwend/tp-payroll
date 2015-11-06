@@ -75,7 +75,10 @@ public class CompanyImpl implements Company {
     }
 
     public Collection<Employee> getDirectSubordinates(Employee manager) {
-        return null;
+        return employees.stream()
+                .filter(e -> e.getManager().isPresent())
+                .filter(e -> e.getManager().get().equals(manager))
+                .collect(toSet());
     }
 
     public Collection<Employee> getSubordinates(Employee manager) {
