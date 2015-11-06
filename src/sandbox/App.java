@@ -42,9 +42,23 @@ public class App {
 //        System.out.println("Non Managers");
 //        company.getNonManagers().forEach(System.out::println);
 
-        company.getDirectSubordinates(john).forEach(System.out::println);
-        company.getDirectSubordinates(bob).forEach(System.out::println);
-        company.getDirectSubordinates(steve).forEach(System.out::println);
+//        company.getDirectSubordinates(john).forEach(System.out::println);
+//        company.getDirectSubordinates(bob).forEach(System.out::println);
+//        company.getDirectSubordinates(steve).forEach(System.out::println);
+
+//        System.out.println("John");
+//        company.getSubordinates(john).forEach(System.out::println);
+//        System.out.println("Bob");
+//        company.getSubordinates(bob).forEach(System.out::println);
+//        System.out.println("Steve");
+//        company.getSubordinates(steve).forEach(System.out::println);
+
+        System.out.println("John");
+        company.getIndirectSubordinates(john).forEach(System.out::println);
+        System.out.println("Bob");
+        company.getIndirectSubordinates(bob).forEach(System.out::println);
+        System.out.println("Steve");
+        company.getIndirectSubordinates(steve).forEach(System.out::println);
 
 //        System.out.println((int) (Math.random() * 44));
 

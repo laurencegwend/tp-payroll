@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static java.util.stream.Collectors.*;
@@ -82,11 +83,18 @@ public class CompanyImpl implements Company {
     }
 
     public Collection<Employee> getSubordinates(Employee manager) {
-        return null;
+        return Stream.concat(
+                getDirectSubordinates(manager).stream(),
+                getIndirectSubordinates(manager).stream()
+        ).collect(toSet());
     }
 
     public Collection<Employee> getIndirectSubordinates(Employee manager) {
-        return null;
+        return employees.stream()
+                .filter(e -> e.getManager().isPresent())
+                .filter(e -> e.getManager().get().equals(manager))
+                .flatMap(e -> getSubordinates(e).stream())
+                .collect(toSet());
     }
 
     public int computeSalary(Employee employee) {

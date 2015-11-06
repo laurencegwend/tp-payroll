@@ -2,6 +2,7 @@ package tp.payroll;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * Cette interface ne doit pas être modifiée
